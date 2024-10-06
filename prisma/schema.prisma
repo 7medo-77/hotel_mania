@@ -58,6 +58,7 @@ model Room {
   hotelID      String
   hotel        Hotel         @relation(fields: [hotelID], references: [id])
   isReserved   Boolean       @default(false)
+  imageURL     String
   Reservations Reservation[]
 }
 
