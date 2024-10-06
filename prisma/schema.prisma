@@ -13,6 +13,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id           String        @id @default(uuid())
+  username     String        @unique
+  password     String
+  firstName    String
+  lastName     String?
+  reservations Reservation[]
+  reviews      Review[]
+  isAdmin      Boolean       @default(false)
+  transactions Transaction[]
+}
+
 model Governate {
   id     String @id @default(uuid())
   name   String @unique
@@ -28,35 +40,36 @@ model City {
 }
 
 model Hotel {
-  id          String        @id @default(uuid())
-  name        String        @unique
+  id           String        @id @default(uuid())
+  name         String        @unique
   // amenities Amenity[]
-  cityID      String
-  city        City          @relation(fields: [cityID], references: [id])
-  reviews     Review[]
-  Room        Room[]
-  Transaction Transaction[]
-  Reservation Reservation[]
+  cityID       String
+  city         City          @relation(fields: [cityID], references: [id])
+  reviews      Review[]
+  rooms        Room[]
+  Transactions Transaction[]
+  Reservations Reservation[]
 }
 
 model Room {
-  id          String        @id @default(uuid())
-  number      Int
-  amenities   Amenity[]
-  hotelID     String
-  hotel       Hotel         @relation(fields: [hotelID], references: [id])
-  isReserved  Boolean       @default(false)
-  Transaction Transaction?
-  Reservation Reservation[]
+  id           String        @id @default(uuid())
+  number       Int
+  amenities    Amenity[]
+  hotelID      String
+  hotel        Hotel         @relation(fields: [hotelID], references: [id])
+  isReserved   Boolean       @default(false)
+  Reservations Reservation[]
 }
 
 model Review {
-  id      String @id @default(uuid())
-  text    String
-  userID  String
-  user    User   @relation(fields: [userID], references: [id])
-  hotelID String
-  hotel   Hotel  @relation(fields: [hotelID], references: [id])
+  text       String
+  reviewDate DateTime
+  userID     String
+  user       User     @relation(fields: [userID], references: [id])
+  hotelID    String
+  hotel      Hotel    @relation(fields: [hotelID], references: [id])
+
+  @@id([userID, hotelID])
 }
 
 model Amenity {
@@ -65,28 +78,21 @@ model Amenity {
   rooms Room[]
 }
 
-model User {
-  id           String        @id @default(uuid())
-  username     String        @unique
-  password     String
-  firstName    String
-  lastName     String?
-  reservations Reservation[]
-  reviews      Review[]
-  transactions Transaction[]
-}
-
 model Transaction {
   id             String       @id @default(uuid())
   amount         Float
-  userID         String
   trasactionDate DateTime
+  paymentMethod  Method       @default(CASH)
+  userID         String
   user           User         @relation(fields: [userID], references: [id])
-  roomID         String       @unique
-  room           Room         @relation(fields: [roomID], references: [id])
   hotelID        String
   hotel          Hotel        @relation(fields: [hotelID], references: [id])
   Reservation    Reservation?
+}
+
+enum Method {
+  CASH
+  CREDIT
 }
 
 model Reservation {
@@ -97,6 +103,6 @@ model Reservation {
   room          Room        @relation(fields: [roomID], references: [id])
   hotelID       String
   hotel         Hotel       @relation(fields: [hotelID], references: [id])
-  transactionId String      @unique
-  transaction   Transaction @relation(fields: [transactionId], references: [id])
+  transactionID String      @unique
+  transaction   Transaction @relation(fields: [transactionID], references: [id])
 }
