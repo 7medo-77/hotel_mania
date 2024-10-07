@@ -22,7 +22,7 @@ model User {
   reservations Reservation[]
   reviews      Review[]
   isAdmin      Boolean       @default(false)
-  transactions Transaction[]
+  // transactions Transaction[]
 }
 
 model Governate {
@@ -47,7 +47,7 @@ model Hotel {
   city         City          @relation(fields: [cityID], references: [id])
   reviews      Review[]
   rooms        Room[]
-  Transactions Transaction[]
+  // Transactions Transaction[]
   reservations Reservation[]
 }
 
@@ -55,11 +55,11 @@ model Room {
   id           String        @id @default(uuid())
   number       Int
   amenities    Amenity[]
+  imageURL     String
+  isReserved   Boolean       @default(false)
+  price        Float
   hotelID      String
   hotel        Hotel         @relation(fields: [hotelID], references: [id])
-  isReserved   Boolean       @default(false)
-  imageURL     String
-  price        Float
   reservations Reservation[]
 }
 
@@ -124,3 +124,4 @@ enum Method {
   CASH
   CREDIT
 }
+

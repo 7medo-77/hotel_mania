@@ -77,7 +77,54 @@ const firstNameArrayLen = firstNameArray.length;
 const lastNameArrayLen = lastNameArray.length;
 
 const amenityArray = [
-  'Cable TV', 'Lockbox', 'Internet', 'Other pet(s)', 'Smartlock', 'Private living room', 'Pets live on this property', 'Self Check-In', 'TV', 'Cat(s)', 'Hot tub', 'Gym', 'Essentials', 'Heating', 'Family/kid friendly', 'Wireless Internet', 'Pets allowed', 'Kitchen', 'Doorman Entry', 'Lock on bedroom door', 'Washer', 'Wheelchair accessible', 'Elevator in building', 'Fire extinguisher', 'Free parking on premises', '24-hour check-in', 'Keypad', 'Air conditioning', 'Suitable for events', 'Laptop friendly workspace', 'Breakfast', 'Smoke detector', 'Shampoo', 'Safety card', 'Iron', 'Dog(s)', 'Hangers', 'Buzzer/wireless intercom', 'Carbon monoxide detector', 'Indoor fireplace', 'Private entrance', 'Dryer', 'Doorman', 'Hair dryer', 'Pool', 'Smoking allowed', 'First aid kit',
+  [ 'Cable TV', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXR2Ij48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHg9IjIiIHk9IjciIHJ4PSIyIiByeT0iMiIvPjxwb2x5bGluZSBwb2ludHM9IjE3IDIgMTIgNyA3IDIiLz48L3N2Zz4=' ],
+  [ 'Lockbox', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXZhdWx0Ij48cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHg9IjMiIHk9IjMiIHJ4PSIyIi8+PGNpcmNsZSBjeD0iNy41IiBjeT0iNy41IiByPSIuNSIgZmlsbD0iY3VycmVudENvbG9yIi8+PHBhdGggZD0ibTcuOSA3LjkgMi43IDIuNyIvPjxjaXJjbGUgY3g9IjE2LjUiIGN5PSI3LjUiIHI9Ii41IiBmaWxsPSJjdXJyZW50Q29sb3IiLz48cGF0aCBkPSJtMTMuNCAxMC42IDIuNy0yLjciLz48Y2lyY2xlIGN4PSI3LjUiIGN5PSIxNi41IiByPSIuNSIgZmlsbD0iY3VycmVudENvbG9yIi8+PHBhdGggZD0ibTcuOSAxNi4xIDIuNy0yLjciLz48Y2lyY2xlIGN4PSIxNi41IiBjeT0iMTYuNSIgcj0iLjUiIGZpbGw9ImN1cnJlbnRDb2xvciIvPjxwYXRoIGQ9Im0xMy40IDEzLjQgMi43IDIuNyIvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjIiLz48L3N2Zz4=' ],
+  [ 'Internet', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWV0aGVybmV0LXBvcnQiPjxwYXRoIGQ9Im0xNSAyMCAzLTNoMmEyIDIgMCAwIDAgMi0yVjZhMiAyIDAgMCAwLTItMkg0YTIgMiAwIDAgMC0yIDJ2OWEyIDIgMCAwIDAgMiAyaDJsMyAzeiIvPjxwYXRoIGQ9Ik02IDh2MSIvPjxwYXRoIGQ9Ik0xMCA4djEiLz48cGF0aCBkPSJNMTQgOHYxIi8+PHBhdGggZD0iTTE4IDh2MSIvPjwvc3ZnPg==' ],
+  [ 'Other pets' ,'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXR1cnRsZSI+PHBhdGggZD0ibTEyIDEwIDIgNHYzYTEgMSAwIDAgMCAxIDFoMmExIDEgMCAwIDAgMS0xdi0zYTggOCAwIDEgMC0xNiAwdjNhMSAxIDAgMCAwIDEgMWgyYTEgMSAwIDAgMCAxLTF2LTNsMi00aDRaIi8+PHBhdGggZD0iTTQuODIgNy45IDggMTAiLz48cGF0aCBkPSJNMTUuMTggNy45IDEyIDEwIi8+PHBhdGggZD0iTTE2LjkzIDEwSDIwYTIgMiAwIDAgMSAwIDRIMiIvPjwvc3ZnPg==' ],
+  [ 'Smartlock', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWdsb2JlLWxvY2siPjxwYXRoIGQ9Ik0xNS42ODYgMTVBMTQuNSAxNC41IDAgMCAxIDEyIDIyYTE0LjUgMTQuNSAwIDAgMSAwLTIwIDEwIDEwIDAgMSAwIDkuNTQyIDEzIi8+PHBhdGggZD0iTTIgMTJoOC41Ii8+PHBhdGggZD0iTTIwIDZWNGEyIDIgMCAxIDAtNCAwdjIiLz48cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI1IiB4PSIxNCIgeT0iNiIgcng9IjEiLz48L3N2Zz4=' ],
+  [ 'Private living room', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJlZCI+PHBhdGggZD0iTTIgNHYxNiIvPjxwYXRoIGQ9Ik0yIDhoMThhMiAyIDAgMCAxIDIgMnYxMCIvPjxwYXRoIGQ9Ik0yIDE3aDIwIi8+PHBhdGggZD0iTTYgOHY5Ii8+PC9zdmc+' ],
+  [ 'Pets live on this property', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBhdy1wcmludCI+PGNpcmNsZSBjeD0iMTEiIGN5PSI0IiByPSIyIi8+PGNpcmNsZSBjeD0iMTgiIGN5PSI4IiByPSIyIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIxNiIgcj0iMiIvPjxwYXRoIGQ9Ik05IDEwYTUgNSAwIDAgMSA1IDV2My41YTMuNSAzLjUgMCAwIDEtNi44NCAxLjA0NVE2LjUyIDE3LjQ4IDQuNDYgMTYuODRBMy41IDMuNSAwIDAgMSA1LjUgMTBaIi8+PC9zdmc+' ],
+  [ 'Self Check-In', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXVzZXItcm91bmQtY2hlY2siPjxwYXRoIGQ9Ik0yIDIxYTggOCAwIDAgMSAxMy4yOTItNiIvPjxjaXJjbGUgY3g9IjEwIiBjeT0iOCIgcj0iNSIvPjxwYXRoIGQ9Im0xNiAxOSAyIDIgNC00Ii8+PC9zdmc+' ],
+  [ 'TV', '' ],
+  ( 'Cats' ,''
+  [ 'Hot tub', '' ],
+  [ 'Gym', '' ],
+  [ 'Essentials', '' ],
+  [ 'Heating', '' ],
+  [ 'Family/kid friendly', '' ],
+  [ 'Wireless Internet', '' ],
+  [ 'Pets allowed', '' ],
+  [ 'Kitchen', '' ],
+  [ 'Doorman Entry', '' ],
+  [ 'Lock on bedroom door', '' ],
+  [ 'Washer', '' ],
+  [ 'Wheelchair accessible', '' ],
+  [ 'Elevator in building', '' ],
+  [ 'Fire extinguisher', '' ],
+  [ 'Free parking on premises', '' ],
+  [ '24-hour check-in', '' ],
+  [ 'Keypad', '' ],
+  [ 'Air conditioning', '' ],
+  [ 'Suitable for events', '' ],
+  [ 'Laptop friendly workspace', '' ],
+  [ 'Breakfast', '' ],
+  [ 'Smoke detector', '' ],
+  [ 'Shampoo', '' ],
+  [ 'Safety card', '' ],
+  [ 'Iron', '' ],
+  ( 'Dogs' ,''
+  [ 'Hangers', '' ],
+  [ 'Buzzer/wireless intercom', '' ],
+  [ 'Carbon monoxide detector', '' ],
+  [ 'Indoor fireplace', '' ],
+  [ 'Private entrance', '' ],
+  [ 'Dryer', '' ],
+  [ 'Doorman', '' ],
+  [ 'Hair dryer', '' ],
+  [ 'Pool', '' ],
+  [ 'Smoking allowed', '' ],
+  ( 'First aid kit', ''),
+
 ];
 
 const reviewArray = [
@@ -208,7 +255,7 @@ async function main() {
           },
         },
       });
-      console.log(uniqueAmenityIdConnectArray);
+      // console.log(uniqueAmenityIdConnectArray);
     }
   }
 
@@ -238,7 +285,7 @@ async function main() {
   });
 
   for (const room of roomArray) {
-    console.log(room.amenities);
+    console.log(room);
     console.log('------------------------------------------------------------');
   }
 }
