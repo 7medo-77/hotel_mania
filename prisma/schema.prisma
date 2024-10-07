@@ -48,7 +48,7 @@ model Hotel {
   reviews      Review[]
   rooms        Room[]
   Transactions Transaction[]
-  Reservations Reservation[]
+  reservations Reservation[]
 }
 
 model Room {
@@ -59,7 +59,8 @@ model Room {
   hotel        Hotel         @relation(fields: [hotelID], references: [id])
   isReserved   Boolean       @default(false)
   imageURL     String
-  Reservations Reservation[]
+  price        Float
+  reservations Reservation[]
 }
 
 model Review {
@@ -79,31 +80,47 @@ model Amenity {
   rooms Room[]
 }
 
-model Transaction {
-  id             String       @id @default(uuid())
-  amount         Float
-  trasactionDate DateTime
-  paymentMethod  Method       @default(CASH)
-  userID         String
-  user           User         @relation(fields: [userID], references: [id])
-  hotelID        String
-  hotel          Hotel        @relation(fields: [hotelID], references: [id])
-  Reservation    Reservation?
-}
+// model Transaction {
+//   id             String       @id @default(uuid())
+//   amount         Float
+//   trasactionDate DateTime
+//   paymentMethod  Method       @default(CASH)
+//   userID         String
+//   user           User         @relation(fields: [userID], references: [id])
+//   hotelID        String
+//   hotel          Hotel        @relation(fields: [hotelID], references: [id])
+//   Reservation    Reservation?
+// }
 
-enum Method {
-  CASH
-  CREDIT
-}
+// model Reservation {
+//   id            String      @id @default(uuid())
+//   userID        String
+//   user          User        @relation(fields: [userID], references: [id])
+//   roomID        String
+//   room          Room        @relation(fields: [roomID], references: [id])
+//   hotelID       String
+//   hotel         Hotel       @relation(fields: [hotelID], references: [id])
+//   transactionID String      @unique
+//   transaction   Transaction @relation(fields: [transactionID], references: [id])
+// }
 
 model Reservation {
-  id            String      @id @default(uuid())
+  // id            String      @id @default(uuid())
+  transactionID String      @unique
+  paymentAmount Float
+  paymentMethod Method       @default(CASH)
+  dateFrom      DateTime
+  dateTo        DateTime
   userID        String
   user          User        @relation(fields: [userID], references: [id])
   roomID        String
   room          Room        @relation(fields: [roomID], references: [id])
   hotelID       String
   hotel         Hotel       @relation(fields: [hotelID], references: [id])
-  transactionID String      @unique
-  transaction   Transaction @relation(fields: [transactionID], references: [id])
+  @@id([transactionID, userID, roomID])
+}
+
+enum Method {
+  CASH
+  CREDIT
 }

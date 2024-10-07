@@ -13,6 +13,12 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function getRandomFloatStep(min, max, step) {
+  const randomStepNumber = Math.floor(Math.random() * ((max - min) / step + 1)) * step + min;
+  const randomStepFloat = randomStepNumber - 0.01;
+  return randomStepFloat.toFixed(2);
+}
+
 const governateArray = [
   {
     name: 'Cairo',
@@ -58,6 +64,7 @@ const roomArray = [];
 for (let i = 0; i < 20; i += 1) {
   roomArray.push({
     number: i + 1,
+    price: getRandomFloatStep(50, 150, 5),
   });
 }
 
