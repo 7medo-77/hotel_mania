@@ -16,7 +16,13 @@ function getRandomInt(min, max) {
 function getRandomFloatStep(min, max, step) {
   const randomStepNumber = Math.floor(Math.random() * ((max - min) / step + 1)) * step + min;
   const randomStepFloat = randomStepNumber - 0.01;
-  return randomStepFloat.toFixed(2);
+  return parseFloat(randomStepFloat.toFixed(2));
+}
+
+function createRandomDate(date, days) {
+  const returnDate = new Date(date);
+  returnDate.setDate(date.getDate() + days);
+  return returnDate;
 }
 
 const governateArray = [
@@ -131,9 +137,11 @@ const reviewArray = [
 ];
 
 async function main() {
+  let hotelObject = await prisma.hotel.findMany();
+  let cityObject = await prisma.city.findMany();
+  let roomObject = await prisma.room.findMany();
+  const reservationObject = await prisma.reservation.findMany();
   const govObject = await prisma.governate.findMany();
-  const hotelObject = await prisma.hotel.findMany();
-  const roomObject = await prisma.room.findMany();
   const amenityObject = await prisma.amenity.findMany();
   const userObject = await prisma.user.findMany();
   const reviewObject = await prisma.review.findMany();
@@ -148,7 +156,9 @@ async function main() {
           },
         },
       });
+      govObject.push(governate);
     }
+    cityObject = await prisma.city.findMany();
   }
 
   if (hotelObject.length === 0) {
@@ -165,11 +175,11 @@ async function main() {
         },
       });
     }
+    hotelObject = await prisma.hotel.findMany();
   }
 
-  if (roomObject.length === 0) {
-    const allHotels = await prisma.hotel.findMany();
-    for (const hotel of allHotels) {
+  if (roomObject.length === 0 && hotelObject.length !== 0) {
+    for (const hotel of hotelObject) {
       const newHotel = await prisma.hotel.update({
         where: {
           id: hotel.id,
@@ -181,6 +191,7 @@ async function main() {
         },
       });
     }
+    roomObject = await prisma.room.findMany();
   }
 
   if (userObject.length === 0) {
@@ -194,16 +205,18 @@ async function main() {
       const userInsert = await prisma.user.create({
         data: newUser,
       });
+      userObject.push(userInsert);
     }
   }
 
-  if (amenityObject.length === 0) {
+  if (amenityObject.length === 0 && roomObject.length !== 0) {
     const amenityObjectTempArray = [];
 
-    for (const amenityString of amenityArray) {
+    for (const amenityStringArray of amenityArray) {
       const newAmenity = await prisma.amenity.create({
         data: {
-          name: amenityString,
+          name: amenityStringArray[0],
+          iconURL: amenityStringArray[1],
         },
       });
       amenityObjectTempArray.push(newAmenity);
@@ -229,23 +242,6 @@ async function main() {
         }
       }
 
-      // for (let i = startIndex; i < startIndex + numAmenities; i += 1) {
-      //   if (i === amenityArray.length - 1 && startIndex + numAmenities > amenityArray.length) {
-      //     for (let j = 0; j < (startIndex + numAmenities) - amenityArray.length ;j += 1) {
-      //       const newObject = {
-      //         id: amenityObjectTempArray[j].id
-      //       }
-      //       uniqueAmenityIdConnectArray.push(newObject)
-      //     }
-      //   }
-      //   else {
-      //     const newObject = {
-      //         id: amenityObjectTempArray[j].id
-      //       }
-      //     uniqueAmenityIdConnectArray.push(newObject)
-      //   }
-      // }
-
       const newRoomAmenitiesConnect = await prisma.room.update({
         where: { id: room.id },
         data: {
@@ -254,7 +250,51 @@ async function main() {
           },
         },
       });
-      // console.log(uniqueAmenityIdConnectArray);
+    }
+  }
+
+  if (
+    reservationObject.length === 0
+    && (userObject.length > 2 && hotelObject.length !== 0 && roomObject.length !== 0)
+  ) {
+    // console.log(userObject.length);
+    // console.log(hotelObject.length);
+    // console.log(roomObject.length);
+    const numberOfReservingUsers = Math.floor(userObject.length / 4);
+    for (let i = 0; i < numberOfReservingUsers; i += 1) {
+      const randomIndex = getRandomInt(0, 10);
+      const { id: userID, firstName: userFirstName } = userObject[randomIndex];
+
+      for (let reservation = 0; reservation < getRandomInt(0, 10); reservation += 1) {
+        const randomRoomIndex = getRandomInt(0, roomObject.length);
+        const { id: roomID, price: roomPrice } = roomObject[randomRoomIndex];
+        const currDate = new Date();
+        const randomReservationFromDate = createRandomDate(currDate, getRandomInt(0, -10));
+        const randomReservationToDate = createRandomDate(currDate, getRandomInt(0, 5));
+        const paymentAmount = parseFloat((
+          randomReservationToDate.getDate() - randomReservationFromDate.getDate()
+        ) * roomPrice).toFixed(2);
+        const { hotelID } = await prisma.room.findUnique({
+          where: {
+            id: roomID,
+          },
+          select: {
+            hotelID: true,
+          },
+        });
+
+        const newReservation = await prisma.reservation.create({
+          data: {
+            paymentAmount,
+            dateFrom: randomReservationFromDate,
+            dateTo: randomReservationToDate,
+            userID,
+            roomID,
+            hotelID,
+          },
+        });
+        reservationObject.push(newReservation);
+      }
     }
   }
 
@@ -276,17 +316,6 @@ async function main() {
   //       })
   //     }
   //   }
-
-  const roomArray = await prisma.room.findMany({
-    include: {
-      amenities: true,
-    },
-  });
-
-  for (const room of roomArray) {
-    console.log(room);
-    console.log('------------------------------------------------------------');
-  }
 }
 
 main()

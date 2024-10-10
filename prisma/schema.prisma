@@ -55,7 +55,6 @@ model Room {
   id           String        @id @default(uuid())
   number       Int
   amenities    Amenity[]
-  imageURL     String
   isReserved   Boolean       @default(false)
   price        Float
   hotelID      String
@@ -75,9 +74,10 @@ model Review {
 }
 
 model Amenity {
-  id    String @id @default(uuid())
-  name  String @unique
-  rooms Room[]
+  id      String @id @default(uuid())
+  name    String @unique
+  iconURL String @db.Text
+  rooms   Room[]
 }
 
 // model Transaction {
@@ -106,17 +106,18 @@ model Amenity {
 
 model Reservation {
   // id            String      @id @default(uuid())
-  transactionID String      @unique
+  transactionID String   @unique @default(uuid())
   paymentAmount Float
-  paymentMethod Method       @default(CASH)
+  paymentMethod Method   @default(CASH)
   dateFrom      DateTime
   dateTo        DateTime
   userID        String
-  user          User        @relation(fields: [userID], references: [id])
+  user          User     @relation(fields: [userID], references: [id])
   roomID        String
-  room          Room        @relation(fields: [roomID], references: [id])
+  room          Room     @relation(fields: [roomID], references: [id])
   hotelID       String
-  hotel         Hotel       @relation(fields: [hotelID], references: [id])
+  hotel         Hotel    @relation(fields: [hotelID], references: [id])
+
   @@id([transactionID, userID, roomID])
 }
 
@@ -124,4 +125,3 @@ enum Method {
   CASH
   CREDIT
 }
-
