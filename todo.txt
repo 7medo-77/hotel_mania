@@ -1,0 +1,6 @@
+create stored procedure to update rooms that get reserved automatically?
+create users API endpoint for both GET, POST, PUT, DELETE
+create reservation endpoint which requires user authentication, has GET, POST methods
+finish creating the review seeds, link each review with one transaction
+Start reading about authentication and JWT
+get a good introduction to using middleware in expressjs
