@@ -22,6 +22,7 @@ model User {
   reservations Reservation[]
   reviews      Review[]
   isAdmin      Boolean       @default(false)
+  // userEmail    String
   // transactions Transaction[]
 }
 

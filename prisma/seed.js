@@ -271,9 +271,9 @@ async function main() {
         const currDate = new Date();
         const randomReservationFromDate = createRandomDate(currDate, getRandomInt(0, -10));
         const randomReservationToDate = createRandomDate(currDate, getRandomInt(0, 5));
-        const paymentAmount = parseFloat((
+        const paymentAmount = (
           randomReservationToDate.getDate() - randomReservationFromDate.getDate()
-        ) * roomPrice).toFixed(2);
+        ) * roomPrice;
         const { hotelID } = await prisma.room.findUnique({
           where: {
             id: roomID,
@@ -294,6 +294,14 @@ async function main() {
           },
         });
         reservationObject.push(newReservation);
+        const updatedRoom = await prisma.room.update({
+          where: {
+            id: roomID,
+          },
+          data: {
+            isReserved: true,
+          },
+        });
       }
     }
   }
@@ -316,6 +324,17 @@ async function main() {
   //       })
   //     }
   //   }
+
+  const reservedRooms = await prisma.room.findMany({
+    where: {
+      isReserved: true,
+    },
+    include: {
+      amenities: true,
+    },
+  });
+  console.log(reservedRooms.length);
+  console.log(reservedRooms);
 }
 
 main()
