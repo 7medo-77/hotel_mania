@@ -18,21 +18,30 @@ function createRandomDate(date, days) {
 }
 
 async function retrieveRooms() {
-  const userReservationID = await prisma.user.findMany({
+  const roomArray = await prisma.room.findMany();
+  const userReservationID = await prisma.room.findMany({
     where: {
-      reservations: {
-        some: {},
+      // id: roomArray[getRandomInt(0, roomArray.length - 1)].id,
+      isReserved: true,
+    },
+    include: {
+      hotel: {
+        select: {
+          name: true,
+          city: {
+            include: {
+              governate: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          },
+        },
       },
     },
-    select: {
-      reservations: true,
-    },
   });
-  console.log(userReservationID.map((resObject) => {
-    const { reservations } = resObject;
-    const reservationsHotelID = reservations.map((reservation) => (reservation.paymentAmount));
-    return reservationsHotelID;
-  }));
+  console.log(userReservationID);
 }
 
 retrieveRooms()

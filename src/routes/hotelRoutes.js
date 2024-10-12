@@ -12,4 +12,9 @@ router.get('/:hotelID/rooms', (req, res) => {
   HotelController.getHotelRooms(req, res);
 });
 
+router.get('/:hotelID/:roomID/amenities', (req, res) => {
+  // get all the rooms in the hotel
+  HotelController.getHotelRoomAmenities(req, res);
+});
+
 module.exports = router;

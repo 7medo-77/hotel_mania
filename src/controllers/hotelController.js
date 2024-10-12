@@ -10,12 +10,23 @@ class HotelController {
   }
 
   static async getHotelRooms(request, response) {
-    const hotelRooms = await prisma.hotel.findMany({
+    const hotelRooms = await prisma.room.findMany({
       where: {
-        id: request.params.hotelID,
+        hotelID: request.params.hotelID,
+        isReserved: false,
+      },
+    });
+    response.json(hotelRooms[0]);
+  }
+
+  static async getHotelRoomAmenities(request, response) {
+    const hotelRooms = await prisma.room.findMany({
+      where: {
+        id: request.params.roomID,
+        hotelID: request.params.hotelID,
       },
       select: {
-        rooms: true,
+        amenities: true,
       },
     });
     response.json(hotelRooms[0]);
