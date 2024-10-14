@@ -3,6 +3,7 @@ const governateRouter = require('./governateRoutes');
 const cityRouter = require('./cityRoutes');
 const hotelRouter = require('./hotelRoutes');
 const roomRouter = require('./roomRoutes');
+const userRouter = require('./userRoutes');
 
 const allRouter = express.Router();
 
@@ -11,5 +12,6 @@ allRouter.use('/governates', governateRouter);
 allRouter.use('/cities', cityRouter);
 allRouter.use('/hotels', hotelRouter);
 allRouter.use('/rooms', roomRouter);
+allRouter.use('/user', userRouter);
 
 module.exports = allRouter;

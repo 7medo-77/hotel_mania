@@ -74,6 +74,10 @@ for (let i = 0; i < 20; i += 1) {
   });
 }
 
+const emailDomainArray = [
+  'gmail', 'yahoo', 'hotmail', 'icloud', 'outlook', 'msn', 'live',
+];
+
 const nameArray = [
   'Ahmed', 'Khalil', 'Fatima', 'Al-Najjar', 'Omar', 'Haddad', 'Layla', 'Mansour', 'Zainab', 'Abdulrahman', 'Mohammed', 'Salah', 'Yasmin', 'Al-Harith', 'Ali', 'Jaber', 'Aisha', 'Kamal', 'Samir', 'Hassan', 'Nour', 'Al-Mutairi', 'Ibrahim', 'Saleh', 'Mariam', 'El-Shami', 'Amira', 'Zaki', 'Tarek', 'Mahmoud', 'Huda', 'Saif', 'Mustafa', 'Al-Taher', 'Farah', 'Abu-Saleh', 'Khaled', 'Fadel', 'Rana', 'Ibrahim', 'Youssef', 'Barakat', 'Leila', 'Tamer', 'Salem', 'Darwish', 'Dina', 'Matar', 'Rami', 'Ghanem',
 ];
@@ -199,8 +203,9 @@ async function main() {
       const newUser = {};
       newUser.firstName = firstNameArray[getRandomInt(0, firstNameArrayLen - 1)];
       newUser.lastName = lastNameArray[getRandomInt(0, lastNameArrayLen - 1)];
-      newUser.username = `${newUser.firstName}_${newUser.lastName}_${i}`;
-      const plainPassword = newUser.username;
+      // newUser.username = `${newUser.firstName}_${newUser.lastName}_${i}`;
+      newUser.email = `${newUser.firstName}_${newUser.lastName}_${getRandomInt(0, 100)}@${emailDomainArray[getRandomInt(0, emailDomainArray.length - 1)]}.com`;
+      const plainPassword = newUser.email;
       newUser.password = await bcrypt.hash(plainPassword, SALT_ROUNDS);
       const userInsert = await prisma.user.create({
         data: newUser,
@@ -324,17 +329,6 @@ async function main() {
   //       })
   //     }
   //   }
-
-  const reservedRooms = await prisma.room.findMany({
-    where: {
-      isReserved: true,
-    },
-    include: {
-      amenities: true,
-    },
-  });
-  console.log(reservedRooms.length);
-  console.log(reservedRooms);
 }
 
 main()

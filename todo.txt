@@ -1,8 +1,12 @@
+\create Email field for users
 create stored procedure to update rooms that get reserved automatically?
 create users API endpoint for both GET, POST, PUT, DELETE
 create reservation endpoint which requires user authentication, has GET, POST methods
-create Email field for users
 add contactUs email list table to schema
 finish creating the review seeds, link each review with one transaction
 Start reading about authentication and JWT
 get a good introduction to using middleware in expressjs
+
+What is the flow of jwt in a backend application? In a HTTP POST /login route, when the sign-in
+is successful, what should the response body contain? a jwt?
+what is the use of auth headers if auth tokens are ultimately stored in the browser cookies?
