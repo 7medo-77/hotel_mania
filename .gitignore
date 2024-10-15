@@ -1,2 +1,4 @@
 node_modules/
 .env
+code_context.txt
+get_code_context.sh
