@@ -5,15 +5,18 @@ const AuthenticationClass = require('../middleware/authenticationClass');
 
 const router = Router();
 
-router.post('/signup', validateClass.validateUserSignUp, (req, res) => {
-  userController.addCurrentValidatedUser(req, res);
-  // res.redirect('/');
-});
+router.post('/signup',
+  validateClass.validateUserSignUp,
+  userController.addCurrentValidatedUser,
+  AuthenticationClass.setAuthTokenCookie,
+  (req, res) => {
+    res.redirect('/');
+  });
 
 router.post('/login',
   validateClass.validateUserLogin,
-  AuthenticationClass.setAuthTokenCookie,
   userController.getCurrentUser,
+  AuthenticationClass.setAuthTokenCookie,
   (req, res) => {
     res.redirect('/');
   // userController.getCurrentUser(req, res);

@@ -23,7 +23,6 @@ model User {
   reservations Reservation[]
   reviews      Review[]
   isAdmin      Boolean       @default(false)
-  // userEmail    String
   // transactions Transaction[]
 }
 
@@ -55,6 +54,8 @@ model Hotel {
 
 model Room {
   id           String        @id @default(uuid())
+  name         String
+  imageURL     String        @db.Text
   number       Int
   amenities    Amenity[]
   isReserved   Boolean       @default(false)

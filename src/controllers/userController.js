@@ -41,11 +41,6 @@ class UserController {
     // will later redirect after testing
   }
 
-  /**
-   * Return: Success: sets a cookie sent to the browser, redirects to home
-   *         Failure: Returns 'Invalid credentials' and status code
-   *         401(Forbidden)
-   */
   static async getCurrentUser(request, response, next) {
     try {
       const userResult = await prisma.user.findUnique({
@@ -53,24 +48,13 @@ class UserController {
           email: request.body.email,
         },
       });
-      if (!userResult) {
-        response.status(500).send('Server Failure to find user')
-      } else {
-        const { password } = request.body;
-
-        if (!userResult) throw new Error('Invalid user email');
-        const hashedPassword = userResult.password;
-        const isValidPassword = await checkPassword(password, hashedPassword);
-        if (!isValidPassword) throw new Error('Invalid Password');
-        response.userCredentials = userResult.id
-        next()
-
-      }
-
-      // const authToken = await generateToken({ data: userResult.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
-      // response.cookie(jwt, authToken);
-      // response.redirect('/');
-
+      const { password } = request.body;
+      if (!userResult) throw new Error('Invalid user email');
+      const hashedPassword = userResult.password;
+      const isValidPassword = await checkPassword(password, hashedPassword);
+      if (!isValidPassword) throw new Error('Invalid Password');
+      response.userCredentials = userResult.id
+      next()
     } catch (error) {
       response.status(401).json({ error: 'Invalid credentials' });
     }

@@ -52,6 +52,126 @@ const governateArray = [
   },
 ];
 
+const hotelPrefixList = [
+  'The Grand',
+  'Royal',
+  'Imperial',
+  'Majestic',
+  'Heritage',
+  'Regal',
+  'Luxury',
+  'Golden',
+  'Summit',
+  'Mount',
+  'Ocean',
+  'Riverside',
+  'Skyline',
+  'Sunset',
+  'Starlight',
+  'Evergreen',
+  'Hilltop',
+  'Crystal',
+  'Sunrise',
+  'Pacific',
+];
+
+const hotelPostfixList = [
+  'Inn',
+  'Resort',
+  'Suites',
+  'Lodge',
+  'Retreat',
+  'Palace',
+  'House',
+  'Villa',
+  'Manor',
+  'Gardens',
+  'Pavilion',
+  'Estates',
+  'Heights',
+  'Oasis',
+  'Cove',
+  'Bay',
+  'Chalet',
+  'Haven',
+  'Hills',
+  'Terrace',
+];
+
+const roomPrefixList = [
+  'Royal',
+  'Grand',
+  'Executive',
+  'Luxury',
+  'Presidential',
+  'Imperial',
+  'Deluxe',
+  'Platinum',
+  'Golden',
+  'Heritage',
+  'Summit',
+  'Serenity',
+  'Skyline',
+  'Diamond',
+  'Ocean',
+  'Mountain',
+  'Garden',
+  'Sunset',
+  'Panoramic',
+  'Majestic',
+];
+
+const roomNameList = [
+  'Horizon',
+  'Avalon',
+  'Elysium',
+  'Zephyr',
+  'Mirage',
+  'Crest',
+  'Oasis',
+  'Cascade',
+  'Solstice',
+  'Phoenix',
+  'Harbor',
+  'Aria',
+  'Aurora',
+  'Summit',
+  'Sierra',
+  'Echo',
+  'Eclipse',
+  'Haven',
+  'Eden',
+  'Vista',
+  'Cove',
+  'Ridge',
+  'Bliss',
+  'Monarch',
+  'Falcon',
+];
+
+const roomPostfixList = [
+  'Suite',
+  'Room',
+  'Chamber',
+  'Retreat',
+  'Lounge',
+  'Villa',
+  'Haven',
+  'Residence',
+  'Parlor',
+  'Pavilion',
+  'Oasis',
+  'Studio',
+  'Sanctuary',
+  'Loft',
+  'Escape',
+  'Hideaway',
+  'Cabana',
+  'Corner',
+  'Terrace',
+  'Nook',
+];
+
 const cityHotelObject = {};
 for (const gov of governateArray) {
   for (const city of gov.city) {
@@ -59,7 +179,10 @@ for (const gov of governateArray) {
 
     for (let i = 0; i < 6; i += 1) {
       const hotelObject = {};
-      hotelObject.name = `${gov.name}_${city.split(' ').join('_')}_hotel_${i}`;
+      const randomIndexPreFix = getRandomInt(0, hotelPrefixList.length - 1);
+      const randomIndexPostFix = getRandomInt(0, hotelPostfixList.length - 1);
+      // hotelObject.name = `${gov.name}_${city.split(' ').join('_')}_hotel_${i}`;
+      hotelObject.name = `${hotelPrefixList[randomIndexPreFix]} ${city} ${hotelPostfixList[randomIndexPostFix]}`;
       hotelArray.push(hotelObject);
     }
     cityHotelObject[city] = hotelArray;
@@ -68,11 +191,26 @@ for (const gov of governateArray) {
 
 const roomArray = [];
 for (let i = 0; i < 20; i += 1) {
-  roomArray.push({
-    number: i + 1,
-    price: getRandomFloatStep(50, 150, 5),
-  });
+  const urlIndexSet = new Set();
+  const urlIndex = getRandomInt(1, 54);
+  const preFixIndex = getRandomInt(0, roomPrefixList.length - 1);
+  const nameIndex = getRandomInt(0, roomNameList.length - 1);
+  const postFixIndex = getRandomInt(0, roomPostfixList.length - 1);
+
+  if (urlIndexSet.has(urlIndex)) {
+    i -= 1;
+  } else {
+    const imageURL = `https://hotelmania.nyc3.cdn.digitaloceanspaces.com/Rooms_Images/Image_${urlIndex}.jpg`;
+    const name = `${roomPrefixList[preFixIndex]} ${roomNameList[nameIndex]} ${roomPostfixList[postFixIndex]}`;
+    roomArray.push({
+      number: i + 1,
+      price: getRandomFloatStep(50, 150, 5),
+      imageURL,
+      name,
+    });
+  }
 }
+console.log(roomArray);
 
 const emailDomainArray = [
   'gmail', 'yahoo', 'hotmail', 'icloud', 'outlook', 'msn', 'live',
