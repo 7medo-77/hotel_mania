@@ -8,7 +8,7 @@ class AuthenticationClass {
       '/user/profile',
     ];
     if (requireAuthList.includes(req.path)) {
-      j;
+      // j;
     } else {
       next();
     }
