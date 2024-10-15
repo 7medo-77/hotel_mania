@@ -1,24 +1,27 @@
+require('dotenv').config();
 const { PrismaClient } = require('@prisma/client');
-const passwordHash = require('../utils/hashPasswordHelper');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { hashPassword, checkPassword } = require('../utils/hashPasswordHelper');
 
 const prisma = new PrismaClient();
 // const bcrypt = require('bcrypt');
 
 class UserController {
-  // SALT_ROUNDS = 5
+  static SALT_ROUNDS = 5
 
   // constructor() {
   //   this.SALT_ROUNDS = 5;
   // }
 
-  static async addCurrentValidatedUser(request, response) {
+  static async addCurrentValidatedUser(request, response, next) {
     const {
       firstname: firstName,
       email,
       lastname: lastName,
       password: plainPassword,
     } = request.body;
-    const hashedPassword = await passwordHash(plainPassword, this.SALT_ROUNDS);
+    const hashedPassword = await hashPassword(plainPassword, UserController.SALT_ROUNDS);
 
     const newUser = await prisma.user.create({
       data: {
@@ -28,30 +31,49 @@ class UserController {
         password: hashedPassword,
       },
     });
-    response.send(newUser);
+
+    if (!newUser) {
+      response.status(500).send('Failure to create new user')
+    } else {
+      response.userCredentials = newUser.id
+      next()
+    }
+    // will later redirect after testing
   }
 
-  static async getHotelRooms(request, response) {
-    const hotelRooms = await prisma.room.findMany({
-      where: {
-        hotelID: request.params.hotelID,
-        isReserved: false,
-      },
-    });
-    response.json(hotelRooms[0]);
-  }
+  /**
+   * Return: Success: sets a cookie sent to the browser, redirects to home
+   *         Failure: Returns 'Invalid credentials' and status code
+   *         401(Forbidden)
+   */
+  static async getCurrentUser(request, response, next) {
+    try {
+      const userResult = await prisma.user.findUnique({
+        where: {
+          email: request.body.email,
+        },
+      });
+      if (!userResult) {
+        response.status(500).send('Server Failure to find user')
+      } else {
+        const { password } = request.body;
 
-  static async getHotelRoomAmenities(request, response) {
-    const hotelRooms = await prisma.room.findMany({
-      where: {
-        id: request.params.roomID,
-        hotelID: request.params.hotelID,
-      },
-      select: {
-        amenities: true,
-      },
-    });
-    response.json(hotelRooms[0]);
+        if (!userResult) throw new Error('Invalid user email');
+        const hashedPassword = userResult.password;
+        const isValidPassword = await checkPassword(password, hashedPassword);
+        if (!isValidPassword) throw new Error('Invalid Password');
+        response.userCredentials = userResult.id
+        next()
+
+      }
+
+      // const authToken = await generateToken({ data: userResult.id }, process.env.SECRET_KEY, { expiresIn: '1h' });
+      // response.cookie(jwt, authToken);
+      // response.redirect('/');
+
+    } catch (error) {
+      response.status(401).json({ error: 'Invalid credentials' });
+    }
   }
 }
 

@@ -16,7 +16,7 @@ class HotelController {
         isReserved: false,
       },
     });
-    response.json(hotelRooms[0]);
+    response.json(hotelRooms);
   }
 
   static async getHotelRoomAmenities(request, response) {

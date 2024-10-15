@@ -1,19 +1,12 @@
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const Joi = require('joi');
-const validatorClass = require('./validatorClass');
+const { generateToken, decodeTokenToUserCredentials } = require('../utils/jwtHelpers');
 
-class AuthenticateClass {
-  static async getAuthToken(req, res) {
-    const tokenNotParsed = req.headers.authorization.split(' ');
-    const authorizationToken = tokenNotParsed[1];
-    return authorizationToken;
-  }
-
+class AuthenticationClass {
   static async requiresAuthentication(req, res, next) {
     const requireAuthList = [
       '/user/profile',
     ];
-
     if (requireAuthList.includes(req.path)) {
       res.sendStatus(403);
     } else {
@@ -21,8 +14,16 @@ class AuthenticateClass {
     }
   }
 
-  static async userSignUp(req, res, next) {
+  static async setAuthTokenCookie(req, res, next) {
+    const authToken = await generateToken({ data: res.userCredentials }, process.env.SECRET_KEY, { expiresIn: '1h' });
+
+    if (!authToken) {
+      res.status(500).send('Error setting up token');
+    } else {
+      res.cookie(jwt, authToken);
+      next();
+    }
   }
 }
 
-module.exports = AuthenticateClass;
+module.exports = AuthenticationClass;

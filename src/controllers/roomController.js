@@ -7,8 +7,8 @@ class RoomController {
   static async getAllRooms(request, response) {
     const allRooms = await prisma.room.findMany();
     // pagination still under construction
-    // response.send(allHotels);
-    response.send('Under construction');
+    response.send(allRooms);
+    // response.send('Under construction');
   }
 
   static async getRoomAmenities(request, response) {
