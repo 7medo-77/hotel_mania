@@ -419,7 +419,7 @@ async function main() {
         const { id: roomID, price: roomPrice } = roomObject[randomRoomIndex];
         const currDate = dayjs(); // .toDate();
         const randomReservationFromDate = currDate.subtract(getRandomInt(-10, -50), 'day');
-        const randomReservationToDate = currDate.subtract(getRandomInt(-20, 15), 'day');
+        const randomReservationToDate = currDate.subtract(getRandomInt(-2, -10), 'day');
 
         if (randomReservationToDate.diff(randomReservationFromDate, 'day') > 30
             || randomReservationToDate - randomReservationFromDate < 0
@@ -462,22 +462,38 @@ async function main() {
       }
     }
   }
+  const passedReservations = await prisma.reservation.findMany({
+    where: {
+      dateTo: {
+        lt: new Date(),
+      },
+    },
+  });
+  console.log(passedReservations.map((reservation) => reservation.dateTo));
 
   if (
     reviewObject.length === 0
     && reservationObject !== 0
   ) {
-    const passedReservations = await prisma.reservation.findMany({
-      where: {
-        dateTo: {
-          lt: dayjs().toDate(),
-        },
-      },
-    });
     for (let i = 0; i < Math.floor(reservationObject.length / 2); i += 1) {
-      const reviewObject = {};
-      const { userID, hotelID } = reservationObject[getRandomInt(0, reservationObject.length - 1)];
+      const {
+        userID, hotelID, dateTo: reviewDate,
+      } = passedReservations[getRandomInt(0, reservationObject.length - 1)];
+      const text = reviewArray[getRandomInt(0, reviewArray.length - 1)];
+      const reviewSampleObject = {
+        userID,
+        hotelID,
+        reviewDate,
+        text,
+      };
+      try {
+        const reviewResult = await prisma.review.create({
+          data: reviewSampleObject,
+        });
+        reviewObject.push(reviewResult);
+      } catch (e) { }
     }
+    // console.log(reviewObject);
   }
 
   // for (const review of reviewArray) {
