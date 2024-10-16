@@ -6,37 +6,16 @@ const prisma = new PrismaClient();
 class RoomController {
   static async getAllRooms(request, response) {
     if (request.query.city) {
-      const stateRooms = await prisma.city.findMany({
+      const cityRoomsArray = await prisma.room.findMany({
         where: {
-          name: request.query.city,
-        },
-        select: {
-          hotels: {
-            select: {
-              rooms: true,
+          hotel: {
+            city: {
+              name: request.query.city,
             },
           },
         },
       });
-      const hotelObjectArray = stateRooms[0].hotels;
-
-      const roomHotelObjectArray = hotelObjectArray.map((hotelObject) => (hotelObject.rooms));
-
-      console.log(roomHotelObjectArray.length);
-      const roomObjectArray = roomHotelObjectArray.reduce((accumulator, currentValue) => {
-        // console.log(typeof (accumulator));
-        accumulator.push(currentValue);
-        return accumulator;
-      });
-
-      // for (const roomObject of roomObjectArray) {
-      //   console.log(typeof (roomObject));
-      // }
-
-      // response.send(stateRooms[0]);
-      // response.send(roomObjectArray);
-      // response.send(hotelObjectArray);
-      response.send(roomHotelObjectArray);
+      response.send(cityRoomsArray);
     } else {
       const allRooms = await prisma.room.findMany();
       // pagination still under construction
