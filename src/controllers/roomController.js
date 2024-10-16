@@ -16,6 +16,7 @@ class RoomController {
                 name: request.query.city,
               },
             },
+            isReserved: false,
           },
         });
 
@@ -34,6 +35,7 @@ class RoomController {
                 },
               },
             },
+            isReserved: false,
           },
         });
 
