@@ -4,9 +4,19 @@ const prisma = new PrismaClient();
 
 class cityController {
   static async getAllCities(request, response) {
-    const allCities = await prisma.city.findMany();
-
-    response.json(allCities);
+    if (request.query.governate) {
+      const cityGovernateArray = await prisma.city.findMany({
+        where: {
+          governate: {
+            name: request.query.governate,
+          },
+        },
+      });
+      response.send(cityGovernateArray);
+    } else {
+      const allCities = await prisma.city.findMany();
+      response.json(allCities);
+    }
   }
 
   static async getAllHotelsOfCity(request, response) {

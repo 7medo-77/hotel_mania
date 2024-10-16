@@ -5,8 +5,32 @@ const prisma = new PrismaClient();
 
 class HotelController {
   static async getAllHotels(request, response) {
-    const allHotels = await prisma.hotel.findMany();
-    response.send(allHotels);
+    if (Object.entries(request.query).length > 0) {
+      if (request.query.city) {
+        const cityHotelsArray = await prisma.hotel.findMany({
+          where: {
+            city: {
+              name: request.query.city,
+            },
+          },
+        });
+        response.json(cityHotelsArray);
+      } else if (request.query.governate) {
+        const governateHotelsArray = await prisma.hotel.findMany({
+          where: {
+            city: {
+              governate: {
+                name: request.query.governate,
+              },
+            },
+          },
+        });
+        response.json(governateHotelsArray);
+      }
+    } else {
+      const allHotels = await prisma.hotel.findMany();
+      response.json(allHotels);
+    }
   }
 
   static async getHotelRooms(request, response) {

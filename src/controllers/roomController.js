@@ -5,23 +5,51 @@ const prisma = new PrismaClient();
 
 class RoomController {
   static async getAllRooms(request, response) {
-    if (request.query.city) {
-      const cityRoomsArray = await prisma.room.findMany({
-        where: {
-          hotel: {
-            city: {
-              name: request.query.city,
+    console.log(request.query);
+
+    if (Object.entries(request.query).length > 0) {
+      if (request.query.city) {
+        const cityRoomsArray = await prisma.room.findMany({
+          where: {
+            hotel: {
+              city: {
+                name: request.query.city,
+              },
             },
           },
-        },
-      });
-      response.send(cityRoomsArray);
+        });
+        response.json(cityRoomsArray);
+      } else if (request.query.governate) {
+        const governateRoomsArray = await prisma.room.findMany({
+          where: {
+            hotel: {
+              city: {
+                governate: {
+                  name: request.query.governate,
+                },
+              },
+            },
+          },
+        });
+        response.json(governateRoomsArray);
+      }
     } else {
       const allRooms = await prisma.room.findMany();
       // pagination still under construction
-      response.send(allRooms);
+      response.json(allRooms);
       // response.send('Under construction');
     }
+  }
+
+  static async getOneRoom(request, response) {
+    const roomResult = await prisma.room.findUnique({
+      where: {
+        id: request.params.roomID,
+      },
+    });
+    // pagination still under construction
+    response.json(roomResult);
+    // response.send('Under construction');
   }
 
   static async getRoomAmenities(request, response) {
