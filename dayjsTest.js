@@ -7,11 +7,14 @@ function getRandomInt(min, max) {
 }
 
 const currDate = dayjs(); // .toDate();
-const randomInt = getRandomInt(-10, -50);
-const randomReservationFromDate = currDate.subtract(randomInt, 'day');
-const randomReservationToDate = currDate.subtract(getRandomInt(-20, 15), 'day');
-console.log(randomReservationToDate);
-console.log(randomReservationFromDate);
+const randomLowInt = getRandomInt(15, 50);
+const randomHighInt = getRandomInt(-3, 14);
+const randomReservationFromDate = currDate.subtract(randomLowInt, 'day');
+const randomReservationToDate = currDate.subtract(randomHighInt, 'day');
+console.log(`from: ${randomReservationFromDate.toString()}`);
+console.log(`to: ${randomReservationToDate.toString()}`);
+console.log(randomLowInt);
+console.log(randomHighInt);
 
 console.log(randomReservationToDate.diff(randomReservationFromDate, 'day'));
 // if (randomReservationToDate.diff(randomReservationFromDate, 'day'))

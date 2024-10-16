@@ -178,22 +178,28 @@ for (const gov of governateArray) {
   for (const city of gov.city) {
     const hotelArray = [];
     const hotelUrlIndexSet = new Set();
+    const hotelPrePostSet = new Map();
 
     for (let i = 0; i < 6; i += 1) {
       const urlIndex = getRandomInt(1, 51);
       const randomIndexPreFix = getRandomInt(0, hotelPrefixList.length - 1);
       const randomIndexPostFix = getRandomInt(0, hotelPostfixList.length - 1);
-      if (hotelUrlIndexSet.has(urlIndex)) {
+
+      if (hotelUrlIndexSet.has(urlIndex)
+        || hotelPrePostSet.has(JSON.stringify([randomIndexPreFix, randomIndexPostFix]))
+      ) {
         i -= 1;
       } else {
+        hotelUrlIndexSet.add(urlIndex);
+        hotelPrePostSet.set(JSON.stringify([randomIndexPreFix, randomIndexPostFix]));
         const hotelObject = {
           name: `${hotelPrefixList[randomIndexPreFix]} ${city} ${hotelPostfixList[randomIndexPostFix]}`,
           imageURL: `https://hotelmania.nyc3.cdn.digitaloceanspaces.com/Hotels/Image_${urlIndex}.jpg`,
         };
-        // hotelObject.name = `${hotelPrefixList[randomIndexPreFix]} ${city} ${hotelPostfixList[randomIndexPostFix]}`;
         hotelArray.push(hotelObject);
       }
     }
+    // console.log(hotelPrePostSet);
     cityHotelObject[city] = hotelArray;
   }
 }
@@ -225,11 +231,16 @@ const emailDomainArray = [
   'gmail', 'yahoo', 'hotmail', 'icloud', 'outlook', 'msn', 'live',
 ];
 
-const nameArray = [
-  'Ahmed', 'Khalil', 'Fatima', 'Al-Najjar', 'Omar', 'Haddad', 'Layla', 'Mansour', 'Zainab', 'Abdulrahman', 'Mohammed', 'Salah', 'Yasmin', 'Al-Harith', 'Ali', 'Jaber', 'Aisha', 'Kamal', 'Samir', 'Hassan', 'Nour', 'Al-Mutairi', 'Ibrahim', 'Saleh', 'Mariam', 'El-Shami', 'Amira', 'Zaki', 'Tarek', 'Mahmoud', 'Huda', 'Saif', 'Mustafa', 'Al-Taher', 'Farah', 'Abu-Saleh', 'Khaled', 'Fadel', 'Rana', 'Ibrahim', 'Youssef', 'Barakat', 'Leila', 'Tamer', 'Salem', 'Darwish', 'Dina', 'Matar', 'Rami', 'Ghanem',
+const firstNameArray = [
+  'Ahmad', 'Ali', 'Amira', 'Amina', 'Aisha', 'Bashir', 'Bilal', 'Dina', 'Fatima', 'Faris', 'Habib', 'Hadi', 'Hamza', 'Hassan', 'Ibrahim', 'Jamal', 'Jibril', 'Khalid', 'Layla', 'Leena', 'Mahmoud', 'Malek', 'Mariam', 'Mona', 'Mustafa', 'Nada', 'Nasser', 'Noor', 'Omar', 'Rami', 'Rana', 'Rania', 'Rashid', 'Reem', 'Safiya', 'Salim', 'Samira', 'Sarah', 'Tariq', 'Yasmin', 'Youssef', 'Zeina', 'Zainab', 'Zayd', 'Samer', 'Soumaya', 'Saif', 'Hana', 'Hussein', 'Anwar',
 ];
-const firstNameArray = nameArray.filter((element, index) => index % 2 === 0);
-const lastNameArray = nameArray.filter((element, index) => index % 2 !== 0);
+
+const lastNameArray = [
+  'Ghoneim', 'Sabry', 'Mahdy', 'Shalaby', 'Zaki', 'Hegazy', 'Younis', 'Samy', 'Rady', 'Lotfy', 'Saeed', 'Nasr', 'Hosny', 'Fathy', 'Khalil', 'Kassem', 'Sherif', 'Gamal', 'Selim', 'Tarek', 'Farid', 'Awad', 'Emad', 'Tawfik', 'Abdelkader', 'Azmy', 'Amin', 'Haroun', 'Ezzat', 'Saleh', 'Bahgat', 'Khattab', 'Shoukry', 'Hamdy', 'Fadl', 'Shaarawy', 'Sayed', 'Raouf', 'Hafez', 'Galal', 'Moussa', 'Anwar', 'Reda', 'Mounir', 'Ashraf', 'Khalifa', 'Shaker', 'Soliman', 'Bayoumi', 'Metwally',
+];
+
+// const firstNameArray = nameArray.filter((element, index) => index % 2 === 0);
+// const lastNameArray = nameArray.filter((element, index) => index % 2 !== 0);
 const firstNameArrayLen = firstNameArray.length;
 const lastNameArrayLen = lastNameArray.length;
 
@@ -346,7 +357,7 @@ async function main() {
   }
 
   if (userObject.length === 0) {
-    for (let i = 0; i < 100; i += 1) {
+    for (let i = 0; i < 300; i += 1) {
       const newUser = {};
       newUser.firstName = firstNameArray[getRandomInt(0, firstNameArrayLen - 1)];
       newUser.lastName = lastNameArray[getRandomInt(0, lastNameArrayLen - 1)];
@@ -409,7 +420,6 @@ async function main() {
     reservationObject.length === 0
     && (userObject.length > 2 && hotelObject.length !== 0 && roomObject.length !== 0)
   ) {
-    // const numberOfReservingUsers = Math.floor(userObject.length / 4);
     for (let i = 0; i < userObject.length; i += 1) {
       const randomIndex = getRandomInt(0, 10);
       const { id: userID, firstName: userFirstName } = userObject[randomIndex];
@@ -418,8 +428,8 @@ async function main() {
         const randomRoomIndex = getRandomInt(0, roomObject.length - 1);
         const { id: roomID, price: roomPrice } = roomObject[randomRoomIndex];
         const currDate = dayjs(); // .toDate();
-        const randomReservationFromDate = currDate.subtract(getRandomInt(-10, -50), 'day');
-        const randomReservationToDate = currDate.subtract(getRandomInt(-2, -10), 'day');
+        const randomReservationFromDate = currDate.subtract(getRandomInt(15, 50), 'day');
+        const randomReservationToDate = currDate.subtract(getRandomInt(-2, 14), 'day');
 
         if (randomReservationToDate.diff(randomReservationFromDate, 'day') > 30
             || randomReservationToDate - randomReservationFromDate < 0
@@ -462,6 +472,7 @@ async function main() {
       }
     }
   }
+
   const passedReservations = await prisma.reservation.findMany({
     where: {
       dateTo: {
@@ -469,50 +480,63 @@ async function main() {
       },
     },
   });
-  console.log(passedReservations.map((reservation) => reservation.dateTo));
+
+  // console.log(passedReservations.map((some) => [some.userID, some.hotelID]));
+  const primaryKeyArray = passedReservations.map((some) => [some.userID, some.hotelID]);
+  const primaryKeyMap = new Map();
+
+  for (const hotelUserID of primaryKeyArray) {
+    const uniqueKey = JSON.stringify(hotelUserID);
+    if (primaryKeyMap.has(uniqueKey)) {
+      continue;
+    } else {
+      primaryKeyMap.set(JSON.stringify(hotelUserID), hotelUserID);
+    }
+  }
+  console.log(primaryKeyMap.size);
 
   if (
     reviewObject.length === 0
     && reservationObject !== 0
   ) {
-    for (let i = 0; i < Math.floor(reservationObject.length / 2); i += 1) {
+    const userHotelMap = new Map();
+    for (let i = 0; i < primaryKeyMap.size; i += 1) {
       const {
         userID, hotelID, dateTo: reviewDate,
-      } = passedReservations[getRandomInt(0, reservationObject.length - 1)];
-      const text = reviewArray[getRandomInt(0, reviewArray.length - 1)];
-      const reviewSampleObject = {
-        userID,
-        hotelID,
-        reviewDate,
-        text,
-      };
-      try {
+      } = passedReservations[getRandomInt(0, passedReservations.length - 1)];
+
+      const uniqueKey = JSON.stringify([userID, hotelID]);
+      if (userHotelMap.has(uniqueKey)) {
+        i -= 1;
+      } else {
+        userHotelMap.set(uniqueKey, [userID, hotelID]);
+        const text = reviewArray[getRandomInt(0, reviewArray.length - 1)];
+        const reviewSampleObject = {
+          userID: userHotelMap.get(uniqueKey)[0],
+          hotelID: userHotelMap.get(uniqueKey)[1],
+          reviewDate,
+          text,
+        };
         const reviewResult = await prisma.review.create({
           data: reviewSampleObject,
         });
         reviewObject.push(reviewResult);
-      } catch (e) { }
+      }
     }
-    // console.log(reviewObject);
+    // console.log(userHotelMap);
   }
-
-  // for (const review of reviewArray) {
-  //   const lowEndIndex = getRandomInt(0, Math.floor(userObject.length / 2));
-  //   const highEndIndex = getRandomInt(lowEndIndex, userObject.length - 1);
-  //   for (let i = lowEnd; i < highEndIndex; i += 1) {
-  //     const reviewDate = new Date();
-  //     reviewDate.setDate(reviewDate.getDate() - i);
-  //     const reviewObject = {
-  //       text: review,
-  //       reviewDate,
-  //       userID: userObject[i].id,
-  //       hotelID: hotelObject[i].id,
-  //     };
-  //     const dbReviewObject = await prisma.review.create({
-  //       data: reviewObject,
-  //     });
-  //   }
-  // }
+  const hotelReviews = await prisma.hotel.findMany({
+    where: {
+      reviews: {
+        some: {},
+      },
+    },
+    select: {
+      name: true,
+      reviews: true,
+    },
+  });
+  console.log(hotelReviews);
 }
 
 main()
