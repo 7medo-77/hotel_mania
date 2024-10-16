@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/', allRouter);
-app.listen(5000, () => {
+app.listen(5001, () => {
   console.log('Server is running');
 });
 

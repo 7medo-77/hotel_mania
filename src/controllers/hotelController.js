@@ -13,6 +13,9 @@ class HotelController {
               name: request.query.city,
             },
           },
+          include: {
+            rooms: true,
+          },
         });
         response.json(cityHotelsArray);
       } else if (request.query.governate) {
@@ -23,6 +26,9 @@ class HotelController {
                 name: request.query.governate,
               },
             },
+          },
+          include: {
+            rooms: true,
           },
         });
         response.json(governateHotelsArray);
