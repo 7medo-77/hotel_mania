@@ -1,4 +1,4 @@
-cauthTokenonst { Router } = require('express');
+const { Router } = require('express');
 const validateClass = require('../middleware/validatorClass');
 const userController = require('../controllers/userController');
 const AuthenticationClass = require('../middleware/authenticationClass');
