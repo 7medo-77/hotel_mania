@@ -1,6 +1,7 @@
 // import { PrismaClient } from '@prisma/client';
 
 require('dotenv').config();
+const dayjs = require('dayjs');
 const bcrypt = require('bcrypt');
 const { PrismaClient, Prisma } = require('@prisma/client');
 
@@ -176,14 +177,22 @@ const cityHotelObject = {};
 for (const gov of governateArray) {
   for (const city of gov.city) {
     const hotelArray = [];
+    const hotelUrlIndexSet = new Set();
 
     for (let i = 0; i < 6; i += 1) {
-      const hotelObject = {};
+      const urlIndex = getRandomInt(1, 51);
       const randomIndexPreFix = getRandomInt(0, hotelPrefixList.length - 1);
       const randomIndexPostFix = getRandomInt(0, hotelPostfixList.length - 1);
-      // hotelObject.name = `${gov.name}_${city.split(' ').join('_')}_hotel_${i}`;
-      hotelObject.name = `${hotelPrefixList[randomIndexPreFix]} ${city} ${hotelPostfixList[randomIndexPostFix]}`;
-      hotelArray.push(hotelObject);
+      if (hotelUrlIndexSet.has(urlIndex)) {
+        i -= 1;
+      } else {
+        const hotelObject = {
+          name: `${hotelPrefixList[randomIndexPreFix]} ${city} ${hotelPostfixList[randomIndexPostFix]}`,
+          imageURL: `https://hotelmania.nyc3.cdn.digitaloceanspaces.com/Hotels/Image_${urlIndex}.jpg`,
+        };
+        // hotelObject.name = `${hotelPrefixList[randomIndexPreFix]} ${city} ${hotelPostfixList[randomIndexPostFix]}`;
+        hotelArray.push(hotelObject);
+      }
     }
     cityHotelObject[city] = hotelArray;
   }
@@ -200,6 +209,7 @@ for (let i = 0; i < 20; i += 1) {
   if (urlIndexSet.has(urlIndex)) {
     i -= 1;
   } else {
+    urlIndexSet.add(urlIndex);
     const imageURL = `https://hotelmania.nyc3.cdn.digitaloceanspaces.com/Rooms_Images/Image_${urlIndex}.jpg`;
     const name = `${roomPrefixList[preFixIndex]} ${roomNameList[nameIndex]} ${roomPostfixList[postFixIndex]}`;
     roomArray.push({
@@ -210,7 +220,6 @@ for (let i = 0; i < 20; i += 1) {
     });
   }
 }
-console.log(roomArray);
 
 const emailDomainArray = [
   'gmail', 'yahoo', 'hotmail', 'icloud', 'outlook', 'msn', 'live',
@@ -400,73 +409,85 @@ async function main() {
     reservationObject.length === 0
     && (userObject.length > 2 && hotelObject.length !== 0 && roomObject.length !== 0)
   ) {
-    // console.log(userObject.length);
-    // console.log(hotelObject.length);
-    // console.log(roomObject.length);
-    const numberOfReservingUsers = Math.floor(userObject.length / 4);
-    for (let i = 0; i < numberOfReservingUsers; i += 1) {
+    // const numberOfReservingUsers = Math.floor(userObject.length / 4);
+    for (let i = 0; i < userObject.length; i += 1) {
       const randomIndex = getRandomInt(0, 10);
       const { id: userID, firstName: userFirstName } = userObject[randomIndex];
 
-      for (let reservation = 0; reservation < getRandomInt(0, 10); reservation += 1) {
-        const randomRoomIndex = getRandomInt(0, roomObject.length);
+      for (let reservation = 0; reservation < getRandomInt(5, 10); reservation += 1) {
+        const randomRoomIndex = getRandomInt(0, roomObject.length - 1);
         const { id: roomID, price: roomPrice } = roomObject[randomRoomIndex];
-        const currDate = new Date();
-        const randomReservationFromDate = createRandomDate(currDate, getRandomInt(0, -10));
-        const randomReservationToDate = createRandomDate(currDate, getRandomInt(0, 5));
-        const paymentAmount = (
-          randomReservationToDate.getDate() - randomReservationFromDate.getDate()
-        ) * roomPrice;
-        const { hotelID } = await prisma.room.findUnique({
-          where: {
-            id: roomID,
-          },
-          select: {
-            hotelID: true,
-          },
-        });
+        const currDate = dayjs(); // .toDate();
+        const randomReservationFromDate = currDate.subtract(getRandomInt(-10, -50), 'day');
+        const randomReservationToDate = currDate.subtract(getRandomInt(-20, 15), 'day');
 
-        const newReservation = await prisma.reservation.create({
-          data: {
-            paymentAmount,
-            dateFrom: randomReservationFromDate,
-            dateTo: randomReservationToDate,
-            userID,
-            roomID,
-            hotelID,
-          },
-        });
-        reservationObject.push(newReservation);
-        const updatedRoom = await prisma.room.update({
-          where: {
-            id: roomID,
-          },
-          data: {
-            isReserved: true,
-          },
-        });
+        if (randomReservationToDate.diff(randomReservationFromDate, 'day') > 30
+            || randomReservationToDate - randomReservationFromDate < 0
+        ) {
+          reservation -= 1;
+        } else {
+          const paymentAmount = (
+            randomReservationToDate.diff(randomReservationFromDate, 'day')
+          ) * roomPrice;
+          const { hotelID } = await prisma.room.findUnique({
+            where: {
+              id: roomID,
+            },
+            select: {
+              hotelID: true,
+            },
+          });
+          const newReservation = await prisma.reservation.create({
+            data: {
+              paymentAmount,
+              dateFrom: randomReservationFromDate.toDate(),
+              dateTo: randomReservationToDate.toDate(),
+              userID,
+              roomID,
+              hotelID,
+            },
+          });
+          reservationObject.push(newReservation);
+          if (newReservation.dateTo > currDate) {
+            const updatedRoom = await prisma.room.update({
+              where: {
+                id: roomID,
+              },
+              data: {
+                isReserved: true,
+              },
+            });
+          }
+        }
       }
     }
   }
 
-  // if (reviewObject.length === 0){
-  //   for (const review of reviewArray) {
-  //     const lowEndIndex = getRandomInt(0, Math.floor(userObject.length / 2))
-  //     const highEndIndex = getRandomInt(lowEndIndex, userObject.length - 1)
-  //     for (let i = lowEnd; i < highEndIndex; i += 1) {
-  //       const reviewDate = new Date()
-  //       reviewDate.setDate(reviewDate.getDate() - i)
-  //       const reviewObject = {
-  //         text: review,
-  //         reviewDate: reviewDate,
-  //         userID: userObject[i].id,
-  //         hotelID: hotelObject[i].id,
-  //       }
-  //       const dbReviewObject = await prisma.review.create({
-  //         data: reviewObject
-  //       })
-  //     }
+  // if (
+  //   reviewObject.length === 0
+  //   && reservationObject !== 0
+  // ) {
+  //   for (let i = 0; i < Math.floor(reservationObject.length / 2); i += 1) {
   //   }
+  // }
+
+  // for (const review of reviewArray) {
+  //   const lowEndIndex = getRandomInt(0, Math.floor(userObject.length / 2));
+  //   const highEndIndex = getRandomInt(lowEndIndex, userObject.length - 1);
+  //   for (let i = lowEnd; i < highEndIndex; i += 1) {
+  //     const reviewDate = new Date();
+  //     reviewDate.setDate(reviewDate.getDate() - i);
+  //     const reviewObject = {
+  //       text: review,
+  //       reviewDate,
+  //       userID: userObject[i].id,
+  //       hotelID: hotelObject[i].id,
+  //     };
+  //     const dbReviewObject = await prisma.review.create({
+  //       data: reviewObject,
+  //     });
+  //   }
+  // }
 }
 
 main()

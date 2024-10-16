@@ -43,6 +43,7 @@ model City {
 model Hotel {
   id           String        @id @default(uuid())
   name         String        @unique
+  imageURL     String        @db.Text
   // amenities Amenity[]
   cityID       String
   city         City          @relation(fields: [cityID], references: [id])
