@@ -20,7 +20,7 @@ class AuthenticationClass {
     if (!authToken) {
       res.status(500).send('Error setting up token');
     } else {
-      res.cookie(jwt, authToken);
+      res.cookie('authToken', authToken);
       next();
     }
   }
