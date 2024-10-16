@@ -463,11 +463,16 @@ async function main() {
     }
   }
 
+  const currDate = new Date();
+  const reservations = await prisma.reservation.findMany({});
+  console.log(reservations.length);
+
   // if (
   //   reviewObject.length === 0
   //   && reservationObject !== 0
   // ) {
   //   for (let i = 0; i < Math.floor(reservationObject.length / 2); i += 1) {
+  //     j;
   //   }
   // }
 
