@@ -463,18 +463,22 @@ async function main() {
     }
   }
 
-  const currDate = new Date();
-  const reservations = await prisma.reservation.findMany({});
-  console.log(reservations.length);
-
-  // if (
-  //   reviewObject.length === 0
-  //   && reservationObject !== 0
-  // ) {
-  //   for (let i = 0; i < Math.floor(reservationObject.length / 2); i += 1) {
-  //     j;
-  //   }
-  // }
+  if (
+    reviewObject.length === 0
+    && reservationObject !== 0
+  ) {
+    const passedReservations = await prisma.reservation.findMany({
+      where: {
+        dateTo: {
+          lt: dayjs().toDate(),
+        },
+      },
+    });
+    for (let i = 0; i < Math.floor(reservationObject.length / 2); i += 1) {
+      const reviewObject = {};
+      const { userID, hotelID } = reservationObject[getRandomInt(0, reservationObject.length - 1)];
+    }
+  }
 
   // for (const review of reviewArray) {
   //   const lowEndIndex = getRandomInt(0, Math.floor(userObject.length / 2));
