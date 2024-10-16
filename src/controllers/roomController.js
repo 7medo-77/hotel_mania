@@ -18,7 +18,12 @@ class RoomController {
             },
           },
         });
-        response.json(cityRoomsArray);
+
+        if (cityRoomsArray.length === 0) {
+          response.status(404).json({ Error: 'Not Found' });
+        } else {
+          response.json(cityRoomsArray);
+        }
       } else if (request.query.governate) {
         const governateRoomsArray = await prisma.room.findMany({
           where: {
@@ -31,12 +36,21 @@ class RoomController {
             },
           },
         });
-        response.json(governateRoomsArray);
+
+        if (governateRoomsArray.length === 0) {
+          response.status(404).json({ Error: 'Not Found' });
+        } else {
+          response.json(governateRoomsArray);
+        }
       }
     } else {
       const allRooms = await prisma.room.findMany();
       // pagination still under construction
-      response.json(allRooms);
+      if (allRooms.length === 0) {
+        response.status(500).json({ Error: 'Server Error' });
+      } else {
+        response.json(allRooms);
+      }
       // response.send('Under construction');
     }
   }
@@ -53,21 +67,33 @@ class RoomController {
   }
 
   static async getRoomAmenities(request, response) {
-    const roomAmenities = await prisma.room.findMany({
+    const roomAmenities = await prisma.amenity.findMany({
       where: {
-        id: request.params.roomID,
-      },
-      select: {
-        amenities: {
-          select: {
-            id: true,
-            iconURL: true,
-            name: true,
+        rooms: {
+          some: {
+            id: request.params.roomID,
           },
         },
       },
     });
-    response.json(roomAmenities[0]);
+    response.json(roomAmenities);
+
+    // const roomAmenities = await prisma.room.findMany({
+    //   where: {
+    //     id: request.params.roomID,
+    //   },
+    //   select: {
+    //     amenities: {
+    //       select: {
+    //         id: true,
+    //         iconURL: true,
+    //         name: true,
+    //       },
+    //     },
+    //   },
+    // });
+
+    // response.json(roomAmenities[0]);
   }
 }
 

@@ -17,7 +17,12 @@ class HotelController {
             rooms: true,
           },
         });
-        response.json(cityHotelsArray);
+
+        if (cityHotelsArray.length === 0) {
+          response.status(404).json({ Error: 'Not Found' });
+        } else {
+          response.json(cityHotelsArray);
+        }
       } else if (request.query.governate) {
         const governateHotelsArray = await prisma.hotel.findMany({
           where: {
@@ -31,11 +36,21 @@ class HotelController {
             rooms: true,
           },
         });
-        response.json(governateHotelsArray);
+
+        if (governateHotelsArray.length === 0) {
+          response.status(404).json({ Error: 'Not Found' });
+        } else {
+          response.json(governateHotelsArray);
+        }
       }
     } else {
       const allHotels = await prisma.hotel.findMany();
-      response.json(allHotels);
+
+      if (allHotels.length === 0) {
+        response.status(500).json({ Error: 'Server Failure' });
+      } else {
+        response.json(allHotels);
+      }
     }
   }
 
@@ -46,7 +61,12 @@ class HotelController {
         isReserved: false,
       },
     });
-    response.json(hotelRooms);
+
+    if (hotelRooms.length === 0) {
+      response.status(404).json({ Error: 'Not Found' });
+    } else {
+      response.json(hotelRooms);
+    }
   }
 
   static async getHotelRoomAmenities(request, response) {
@@ -59,7 +79,11 @@ class HotelController {
         amenities: true,
       },
     });
-    response.json(hotelRooms[0]);
+    if (hotelRooms.length === 0) {
+      response.status(404).json({ Error: 'Not Found' });
+    } else {
+      response.json(hotelRooms[0]);
+    }
   }
 }
 
