@@ -22,21 +22,32 @@ class UserController {
       password: plainPassword,
     } = request.body;
     const hashedPassword = await hashPassword(plainPassword, UserController.SALT_ROUNDS);
+    console.log(request.body);
 
-    const newUser = await prisma.user.create({
-      data: {
-        firstName,
-        lastName,
+    const userExists = await prisma.user.findUnique({
+      where: {
         email,
-        password: hashedPassword,
       },
     });
 
-    if (!newUser) {
-      response.status(500).send('Failure to create new user')
+    if (userExists) {
+      response.status(409).json({ Error: 'User already exists' });
     } else {
-      response.userCredentials = newUser.id
-      next()
+      const newUser = await prisma.user.create({
+        data: {
+          firstName,
+          lastName,
+          email,
+          password: hashedPassword,
+        },
+      });
+
+      if (!newUser) {
+        response.status(500).send('Failure to create new user');
+      } else {
+        response.userCredentials = newUser.id;
+        next();
+      }
     }
     // will later redirect after testing
   }
@@ -48,16 +59,16 @@ class UserController {
           email: request.body.email,
         },
       });
-      console.log(request.body)
+      console.log(request.body);
       const { password } = request.body;
 
       if (!userResult) throw new Error('Invalid user email');
       const hashedPassword = userResult.password;
       const isValidPassword = await checkPassword(password, hashedPassword);
       if (!isValidPassword) throw new Error('Invalid Password');
-      response.userCredentials = userResult.id
+      response.userCredentials = userResult.id;
 
-      next()
+      next();
     } catch (error) {
       response.status(401).json({ error: 'Invalid credentials' });
     }
