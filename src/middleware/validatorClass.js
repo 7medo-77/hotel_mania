@@ -16,9 +16,9 @@ class validatorClass {
     password: Joi.string()
               .min(8)
               .max(50)
-              .pattern(new RegExp('^[a-zA-Z0-9]{8,50}$')) // requires minimum length of 8, max of 50. alphabet and numbers
-              .pattern(new RegExp('(?=.*[A-Z])')) // minimum of one capital letter
-              .pattern(new RegExp('(?=.*[0-9])')) // minimum one number
+              // .pattern(new RegExp('^[a-zA-Z0-9]{8,50}$')) // requires minimum length of 8, max of 50. alphabet and numbers
+              // .pattern(new RegExp('(?=.*[A-Z])')) // minimum of one capital letter
+              // .pattern(new RegExp('(?=.*[0-9])')) // minimum one number
               .required()
   });
 
@@ -30,8 +30,8 @@ class validatorClass {
               .min(8)
               .max(50)
               // .pattern(new RegExp('^[a-zA-Z0-9]{8,50}$')) // requires minimum length of 8, max of 50. alphabet and numbers
-              .pattern(new RegExp('(?=.*[A-Z])')) // minimum of one capital letter
-              .pattern(new RegExp('(?=.*[0-9])')) // minimum one number
+              // .pattern(new RegExp('(?=.*[A-Z])')) // minimum of one capital letter
+              // .pattern(new RegExp('(?=.*[0-9])')) // minimum one number
               .required()
   });
 

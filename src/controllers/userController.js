@@ -48,12 +48,15 @@ class UserController {
           email: request.body.email,
         },
       });
+      console.log(request.body)
       const { password } = request.body;
+
       if (!userResult) throw new Error('Invalid user email');
       const hashedPassword = userResult.password;
       const isValidPassword = await checkPassword(password, hashedPassword);
       if (!isValidPassword) throw new Error('Invalid Password');
       response.userCredentials = userResult.id
+
       next()
     } catch (error) {
       response.status(401).json({ error: 'Invalid credentials' });
