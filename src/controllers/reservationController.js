@@ -8,50 +8,35 @@ class ReservationController {
   static async getAllReservations(request, response) {
     console.log(request);
 
-      if (request.userID) {
-        const reservationsArray = await prisma.reservation.findMany({
-          where: {
-            userID: request.userID,
-          },
-        });
+    if (request.userID) {
+      const reservationsArray = await prisma.reservation.findMany({
+        where: {
+          userID: request.userID,
+        },
+      });
 
-        if (reservationsArray.length === 0) {
-          response.status(404).json({ Error: 'Not Found' });
-        } else {
-          response.json(reservationsArray);
-        }
-      } else if (request.userID && request.roomID) {
-        const userRoomReservation = await prisma.reservation.findUnique({
-          where: {
-            userID: request.userID,
-            roomID: request.roomID,
-          },
-        });
-
-        if (!userRoomReservation) {
-          response.status(404).json({ Error: 'Not Found' });
-        } else {
-          response.json(userRoomReservation);
-        }
+      if (reservationsArray.length === 0) {
+        response.status(404).json({ Error: 'Not Found' });
+      } else {
+        response.json(reservationsArray);
       }
+    } else if (request.userID && request.roomID) {
+      const userRoomReservation = await prisma.reservation.findUnique({
+        where: {
+          userID: request.userID,
+          roomID: request.roomID,
+        },
+      });
 
-      // response.send('Under construction');
+      if (!userRoomReservation) {
+        response.status(404).json({ Error: 'Not Found' });
+      } else {
+        response.json(userRoomReservation);
+      }
     }
-  }
 
-  // static async getReservationByHotel(request, response) {
-  //   const reservationResult = await prisma.reservation.findMany({
-  //     where: {
-  //       hotelID: request.params.hotelID,
-  //     },
-  //   });
-  //   if (reservationResult.length === 0) {
-  //     response.status(404).json({ Error: 'Not Found' });
-  //   } else {
-  //     response.json(reservationResult);
-  //   }
-  //   // response.json('Under construction');
-  // }
+    // response.send('Under construction');
+  }
 
   static async addValidatedUserReservation(req, res) {
     const {
@@ -87,6 +72,7 @@ class ReservationController {
       res.status(500).json({ Error: 'Server Failure' });
     }
   }
+
   //   static async getreservationByUser(request, response) {
   //     const reservationResult = await prisma.reservation.findUnique({
   //       where: {
