@@ -1,0 +1,186 @@
+{
+  "node": {
+    "0c0b79aa9bab38909df5fa72a700307d63fc4f44": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "24bfe0ab86622ca8d9fd8102bc4d876c0fd0929c": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "486062adcda11f5a8ed1c04c1f4f73fa7a32378d": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "52b7c69c57cd5f9a40cc75df2fa15fd0451363c6": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "53122bf8a3e71891ccf5284d22647e007c474fb7": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "9d0082e4f1ed1ac61463ab957613cbfe3ff6660e": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "b0a165fd51bea4a02d25688cc2af47658e1acafa": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "dfb64dbfa01190adc19359a2197edbdee2c89569": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "e8cfc784c512bf222dc04b591bf3acee380477ad": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    },
+    "fc9d2238814ee462c540f5fe6a26b82480375d98": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/login/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/order/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/contact/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/cart/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!",
+        "app/(auth)/register/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fmahmo%2FALX%2Fportifolio_test%2Fsnacky%2Fsrc%2Flib%2Faction.js%22%2C%5B%22logOut%22%2C%22orderDelivery%22%2C%22updatePhoneNumber%22%2C%22getUserFromDb%22%2C%22updateAddress%22%2C%22getMenu%22%2C%22logIn%22%2C%22register%22%2C%22getUser%22%2C%22orderPayment%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/(auth)/login/page": "rsc",
+        "app/order/page": "rsc",
+        "app/contact/page": "rsc",
+        "app/cart/page": "rsc",
+        "app/(auth)/register/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "++SwVgrLIE+9+XNflwcKfCyVRrcjdGaYzLMkY0O+i5s="
+}

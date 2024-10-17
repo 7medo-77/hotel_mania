@@ -1,0 +1,188 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/app/home.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+/* Home Page styles */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+/* General styles for the container */
+.home_container__2nSFh {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 89vh;
+  background: url('/Home1.png') no-repeat center center/cover; /* Full background image */
+  text-align: center;
+  color: white; /* Ensure text is readable */
+  font-family: 'Roboto', sans-serif; /* Apply body font */
+  padding: 20px;
+  animation: home_fadeInBackground__y7HQ2 2s ease-in-out; /* Background fade-in animation */
+}
+
+@keyframes home_fadeInBackground__y7HQ2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.home_overlay__NxEke {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: Add a dark overlay for better text contrast */
+  animation: home_fadeInOverlay__49Igt 2s ease-in-out; /* Overlay fade-in animation */
+}
+
+@keyframes home_fadeInOverlay__49Igt {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.home_textContainer__1ljkg {
+  position: relative; /* Ensure text is above the overlay */
+  z-index: 1; /* Ensure text is above the overlay */
+  max-width: 800px; /* Adjusted max-width for better layout */
+  margin: 0 auto;
+  padding: 40px 20px; /* Adjusted padding for better spacing */
+  margin-top: 200px; /* Adjusted margin-top for better spacing */
+  animation: home_slideInText__Y7YN5 2s ease-in-out; /* Text slide-in animation */
+}
+
+@keyframes home_slideInText__Y7YN5 {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.home_title__jKRy7 {
+  font-size: 100px;
+  font-family: 'Playfair Display', serif; /* Apply title font */
+  margin: 0 0 20px 0; /* Adjusted margin for better spacing */
+}
+
+.home_desc__ZPff_ {
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 40px; /* Adjusted margin for better spacing */
+  font-family: 'Roboto', sans-serif; /* Apply body font */
+}
+
+.home_buttons__Z9C0a {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.home_button_1__4oMuC,
+.home_button_2__CJWrg {
+  padding: 10px;
+  min-height: 50px;
+  min-width: 160px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif; /* Apply body font */
+}
+
+.home_button_1__4oMuC {
+  background-color: green;
+  color: white;
+}
+
+.home_button_2__CJWrg {
+  background-color: white;
+  color: black;
+}
+
+.home_button_1__4oMuC:hover,
+.home_button_2__CJWrg:hover {
+  background-color: green;
+  color: white;
+}
+
+/* Styles for the about us section */
+.home_container_1__aQrmB {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px; /* Adjust this value as needed */
+  margin-bottom: 20px;
+}
+
+.home_title_1__GbmXU {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333333;
+  font-family: 'Playfair Display', serif; /* Apply title font */
+}
+
+.home_description__j4uIU {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #666666;
+  font-family: 'Roboto', sans-serif; /* Apply body font */
+}
+
+.home_signature__He_9_ {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  font-family: 'Playfair Display', serif; /* Apply title font */
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home_title__jKRy7 {
+    font-size: 50px;
+  }
+
+  .home_desc__ZPff_ {
+    font-size: 30px;
+  }
+
+  .home_textContainer__1ljkg {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home_title__jKRy7 {
+    font-size: 40px;
+  }
+
+  .home_desc__ZPff_ {
+    font-size: 20px;
+  }
+
+  .home_textContainer__1ljkg {
+    padding: 10px;
+  }
+}
+
