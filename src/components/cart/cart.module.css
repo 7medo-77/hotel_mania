@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+    background-color: var(--bgSoft);
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    gap: 50px;
+    flex-wrap: wrap;
+    
+}
+.signIncontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    width: 50%;
+    background-color: var(--bgSoft);
+    padding: 20px;
+    margin: auto; /* Center horizontally and vertically */
+    margin-top: 100px; /* Adjust margin-top if needed */
+    border-radius: 8px;
+    gap: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    margin-bottom: 100px;
+}
+
+.signIncontainer h1 {
+    margin: 0; /* Remove default margin */
+    padding: 0 10px; /* Add some padding */
+    color: red; /* Ensure text color is consistent */
+    text-align: center;
+}
+
+.redText {
+    text-decoration: none;
+    color: #d9534f;
+    transition: color 0.3s ease; /* Add smooth transition */
+}
+.b1{
+    padding: 20px 40px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    background-color: #038d03;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+.b1:hover {
+    background-color: #097909;
+}
+
+.cart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    flex: 1;
+    max-width: 60%;
+}
+
+.cartItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    gap: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cartItem img {
+    border-radius: 8px;
+}
+
+.amount {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.amount button {
+    background-color: #ddd;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.amount button:hover {
+    background-color: #ccc;
+}
+
+.removeButton {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.removeButton:hover {
+    background-color: #d9534f;
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-top: 20px;
+}
+.total h1 {
+    padding-right: 35px;
+}
+
+.purchase {
+    display: flex;
+    gap: 10px;
+}
+
+.payButton, .discardButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.payButton {
+    background-color: #10b510;
+    color: #fff;
+}
+
+.payButton:hover {
+    background-color: #038d03;
+}
+
+.discardButton {
+    background-color: #969796;
+    color: #fff;
+}
+
+.discardButton:hover {
+    background-color: #6c6d6c;
+}
+
+.empty {
+    align-items: center;
+    justify-content: center;
+}
