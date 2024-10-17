@@ -8,11 +8,12 @@
 \\ migrate database schema to the newest prisma.schema file, which includes User.email
 \\test /user/signup POST api endpoint
 \\change userController.addCurrentValidatedUser() response to redirection after testing
+\\create users API endpoint for GET, POST
 
 Add error handling middleware/controller for misisng ids in URL or other situations: rooms, hotels, cities
 add Auth middleware which selects which filters out routes which need authorization: Extracts request.cookies.authToken and handles redirection/401 code in case of rejection
 create stored procedure to update rooms that get reserved automatically?
-create users API endpoint for both GET, POST, PUT, DELETE
+create /user/updatepassword API endpoint  PUT
 Include /updatepassword POST endpoint which may require authorization, and uses prisma.user.update(), and handles redirection
 add contactUs email list table to schema
 create reservation endpoint which requires user authentication, has GET, POST methods

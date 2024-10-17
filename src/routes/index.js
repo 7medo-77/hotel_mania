@@ -6,6 +6,7 @@ const hotelRouter = require('./hotelRoutes');
 const roomRouter = require('./roomRoutes');
 const userRouter = require('./userRoutes');
 const reviewRouter = require('./reviewRoutes');
+const reservationRouter = require('./reservationRoutes');
 
 const allRouter = express.Router();
 
@@ -19,5 +20,6 @@ allRouter.use('/hotels', hotelRouter);
 allRouter.use('/rooms', roomRouter);
 allRouter.use('/user', userRouter);
 allRouter.use('/reviews', reviewRouter);
+allRouter.use('/reservation', reservationRouter);
 
 module.exports = allRouter;
