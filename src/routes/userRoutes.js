@@ -13,7 +13,7 @@ router.post('/signup',
     res.redirect('/');
   });
 
-router.get('/login',
+router.post('/login',
   validateClass.validateUserLogin,
   userController.getCurrentUser,
   AuthenticationClass.setAuthTokenCookie,
