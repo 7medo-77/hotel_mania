@@ -1,0 +1,52 @@
+
+
+.users {
+	/* width: 20%;
+	min-height: 600px;
+	*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f0f0f0; /* Light background for the info section */
+    border-radius: 8px; /* Rounded corners for the info section */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.usersContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+/* Style the button */
+.deleteButton {
+	background-color: #f44336; /* Red background color */
+	color: white; /* Text color */
+	border: none; /* Remove border */
+	padding: 8px 16px; /* Add padding for spacing */
+	cursor: pointer; /* Show pointer cursor on hover */
+	transition: 0.3s; /* Add a smooth transition effect */
+  }
+  
+  /* Style the delete icon (assuming you're using an SVG) */
+  .deleteButton svg {
+	color: #f44336; /* Match the button's background color */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: 0.3s;
+  }
+  
+  /* Add hover effect */
+  .deleteButton:hover {
+	background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  /* Adjust the icon color on hover */
+  .deleteButton:hover svg {
+	color: #d32f2f;
+  }
+  
