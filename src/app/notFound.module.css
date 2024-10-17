@@ -1,0 +1,16 @@
+/* Not Found page styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+    background-color: var(--bgSoft);
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    gap: 50px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
