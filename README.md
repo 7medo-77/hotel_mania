@@ -1,4 +1,4 @@
-This is the final project for alx software engineering foundations "Holberton Full-Stack program"
+This is the final project for alx software engineering.
 The project is made using next.js and postgreSql.
 
 About the project:
