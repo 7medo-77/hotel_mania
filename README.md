@@ -28,6 +28,7 @@ HotelMania is a hotel management system designed to simplify finding and booking
 - Add user authentication and profiles.
 - Implement a booking system with payment gateway integration.
 - Include advanced filters (e.g., star ratings, amenities).
+- Create a robust data access layer which handles all the api calls for the front end
 - Develop an admin dashboard for hotel managers (yet to be done).
 
 ## License
