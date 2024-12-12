@@ -1,32 +1,39 @@
 {
-  "name": "snacky",
-  "version": "0.1.0",
-  "private": true,
+  "name": "hotelmania",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon ./src/index.js",
+    "start": "nodemon ./src/index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@emailjs/browser": "^4.3.3",
-    "@fortawesome/fontawesome-svg-core": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
-    "@vercel/postgres": "^0.8.0",
-    "aos": "^2.3.4",
+    "@prisma/client": "^5.20.0",
     "bcrypt": "^5.1.1",
-    "emailjs-com": "^3.2.0",
-    "jwt-decode": "^4.0.0",
-    "next": "14.2.4",
-    "next-auth": "^5.0.0-beta.19",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.52.1",
-    "zod": "^3.23.8"
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.2",
+    "prisma": "^5.20.0",
+    "request": "^2.88.0",
+    "sinon": "^7.5.0"
   }
 }
