@@ -1,4 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 // const bcrypt = require('bcrypt');
@@ -8,6 +8,8 @@ class HotelController {
     if (Object.entries(request.query).length > 0) {
       if (request.query.city) {
         const cityHotelsArray = await prisma.hotel.findMany({
+          skip: 0,
+          take: 10,
           where: {
             city: {
               name: request.query.city,
@@ -19,12 +21,14 @@ class HotelController {
         });
 
         if (cityHotelsArray.length === 0) {
-          response.status(404).json({ Error: 'Not Found' });
+          response.status(404).json({ Error: "Not Found" });
         } else {
           response.json(cityHotelsArray);
         }
       } else if (request.query.governate) {
         const governateHotelsArray = await prisma.hotel.findMany({
+          skip: 0,
+          take: 10,
           where: {
             city: {
               governate: {
@@ -38,7 +42,7 @@ class HotelController {
         });
 
         if (governateHotelsArray.length === 0) {
-          response.status(404).json({ Error: 'Not Found' });
+          response.status(404).json({ Error: "Not Found" });
         } else {
           response.json(governateHotelsArray);
         }
@@ -47,7 +51,7 @@ class HotelController {
       const allHotels = await prisma.hotel.findMany();
 
       if (allHotels.length === 0) {
-        response.status(500).json({ Error: 'Server Failure' });
+        response.status(500).json({ Error: "Server Failure" });
       } else {
         response.json(allHotels);
       }
@@ -63,7 +67,7 @@ class HotelController {
     });
 
     if (hotelRooms.length === 0) {
-      response.status(404).json({ Error: 'Not Found' });
+      response.status(404).json({ Error: "Not Found" });
     } else {
       response.json(hotelRooms);
     }
@@ -80,7 +84,7 @@ class HotelController {
       },
     });
     if (hotelRooms.length === 0) {
-      response.status(404).json({ Error: 'Not Found' });
+      response.status(404).json({ Error: "Not Found" });
     } else {
       response.json(hotelRooms[0]);
     }
